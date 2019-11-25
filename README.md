@@ -1,11 +1,10 @@
 # internship_mysite
 This website is based on the official [django tutorial](https://www.djangoproject.com/start/).
 It could be used to start polls or just ask questions. The administrator can create questions and add them to a survey.
-Everybody can see the results.
+Everybody can see the results. On this way the administrator can asks his friends for events or ideas, completly anonym.
 
 Author: Simon Heuschkel
 
-flake 8 score: 
 
 deployment:
 * no requirement.txt or Pipfile is written
@@ -25,4 +24,8 @@ functionalities:
 * ... some more little changes in the codestyle/html structure etc.
 * The application may contain some more code snippets or files, which aren't in use. 
   Those are just there, because I will continue working on it after the application periode.
+  
+ design:
+ * [w3css](https://www.w3schools.com/w3css/) is used to design a few parts of the website. It's a lightweight css framework, which requieres no license. 
+
   
