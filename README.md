@@ -27,5 +27,6 @@ functionalities:
   
  design:
  * [w3css](https://www.w3schools.com/w3css/) is used to design a few parts of the website. It's a lightweight css framework, which requieres no license. 
+ * codestyle checked with flake8
 
   
