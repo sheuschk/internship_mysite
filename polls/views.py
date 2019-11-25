@@ -60,6 +60,7 @@ def vote(request, question_id):
 
 
 class QuestionView(generic.ListView):
+    """A view which displays all questions in a list"""
     model = Question
     template_name = "polls/questions.html"
     context_object_name = "all_questions_list"
@@ -69,6 +70,7 @@ class QuestionView(generic.ListView):
 
 
 class SurveyView(generic.ListView):
+    """Displays all questions which are currently tagged as part of the survey"""
     model = Question
     template_name = "polls/survey.html"
     context_object_name = "survey_question_list"
@@ -78,6 +80,7 @@ class SurveyView(generic.ListView):
 
 
 def survey_vote(request, question_id):
+    """View which calculates the votes for a survey question and redirects to the survey"""
     question = get_object_or_404(Question, id=question_id, survey=True)
     questions = get_list_or_404(Question, survey=True)
     try:
@@ -96,6 +99,7 @@ def survey_vote(request, question_id):
 
 
 class SurveyResultView(generic.ListView):
+    """Shows the results of all survey questions"""
     model = Question
     template_name = "polls/survey_result.html"
     context_object_name = 'survey_result_list'
@@ -109,18 +113,4 @@ def about(request):
     return render(request, "polls/about.html")
 
 
-"""
-Sadly this function isn't in use right know, it was part of plotting and show the most popular. I let it in the source code as 
-a hint for myself, how the db querys are done.
-
-def popular():
-    questions = get_list_or_404(Question)
-    query_set = [q.choice_set.all() for q in questions]
-    vote_count = {}
-    for i in range(len(query_set)):
-        vote_counter = [ch.votes for ch in query_set[i]]
-        vote_count[questions[i]] = vote_counter
-    print(vote_count)
-    
-"""
 
