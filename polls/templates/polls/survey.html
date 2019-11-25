@@ -1,0 +1,31 @@
+{% extends "polls/base.html" %}
+
+{% block title %}My survey{% endblock %}
+{% block content %}
+    <h2>Welcome to my personal survey</h2>
+
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    {% if survey_question_list %}
+            {% for question in survey_question_list %}
+                <form action="{% url 'polls:survey_vote' question.id %}" method="post">
+                    {% csrf_token %}
+                    <label><b>{{ question.question_text }}</b></label><br>
+                    {% for choice in question.choice_set.all %}
+                        <input type="radio" name="choice" id="choice{{ choice.id }}" value="{{ choice.id }}">
+                        <label for="choice{{ choice.id }}">{{ choice.choice_text}}</label><br>
+                    {% endfor %}
+
+                    <input type="submit" value="Vote">
+                </form>
+                <br>
+            {% endfor %}
+        <p>Want to see the Results? </p><br>
+        <a href="{% url 'polls:survey_result' %}" type="button" class="w3-btn w3-blue-gray">Results</a>
+
+    {% else %}
+        <p><b>Sorry no survey right now. Come back later :)</b></p>
+    {% endif %}
+{% endblock %}
+
+

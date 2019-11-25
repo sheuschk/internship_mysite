@@ -1,0 +1,17 @@
+{% extends "polls/base.html" %}
+
+{% block title %}Questions{% endblock %}
+{% block content %}
+
+    <h2>All questions</h2>
+    {% if all_questions_list %}
+        <ul>
+        {% for question in all_questions_list %}
+            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+    <p>Back to Index?</p><a href="{% url 'polls:index' %}" type="button" class="w3-btn w3-blue-gray">Here</a>
+{% endblock %}

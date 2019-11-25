@@ -1,0 +1,25 @@
+{% extends "polls/base.html" %}
+
+{% block title %}Survey Result{% endblock %}
+{% block content %}
+
+<h2>Survey Results</h2>
+    {% if survey_result_list %}
+    {% for question in survey_result_list %}
+
+        <ul class="w3-ul">
+            <li><h4>{{ question.question_text }}</h4></li>
+        {% for choice in question.choice_set.all %}
+            <li class="w3-padding-small">{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+    {% else %}
+        <p>No survey right now. Come back later :)</p>
+    {% endif %}
+    <br>
+    <p><b>You want to answer some more questions?</b></p> <a href="{% url 'polls:survey' %}" type="button"
+                                                             class="w3-btn w3-blue-grey">Back</a>
+
+
+{% endblock %}
