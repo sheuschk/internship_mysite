@@ -9,12 +9,13 @@ Author: Simon Heuschkel
 deployment:
 * no requirement.txt or Pipfile is written
 * django>=2.1.2 and python>=3.5 must be installed  (pip install django)
-* to start via command line:
-..* get in the ordner manage.py 
-..* type the command: py manage.py runserver
-..* testing the polls app: py manage.py test polls
+* to start via command line:  
+  * get in the project ordner with the manage.py   
+  * type the command: py manage.py runserver  
+  * testing the polls app: py manage.py test polls  
 * the database is uploaded, to bring some sample data and an admin, that the app could be started without creating a user
-* admin   name=admin, password=admin
+  * name=admin
+  * password=admin
 
 functionalities:
 * Basic funtionalities from the tutorial
@@ -22,7 +23,7 @@ functionalities:
 * Admin can create a survey
 * List with all questions
 * ... some more little changes in the codestyle/html structure etc.
-* The application may contain some more code snippets or files, which aren't in use. 
+* The application may contain some more code snippets or files, which aren't in use, f.e. forms.py.
   Those are just there, because I will continue working on it after the application periode.
   
  design:
